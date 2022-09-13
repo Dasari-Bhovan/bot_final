@@ -24,17 +24,17 @@ def sample_responses(input_text):
       if x[6:8] in BRANCH and  (x[4:6]=="5A" or x[4:6]=="1A"):
         result=""
         if x[0:6]=="21BQ5A":
-          y="20BQ"
+          y1="20BQ"
         elif  x[0:6]=="20BQ1A":
-          y="20BQ"
+          y1="20BQ"
         elif  x[0:6]=="20BQ5A":
-          y="19BQ"
+          y1="19BQ"
         else:
-          y="20BQ"
-        for sem in os.listdir(y+"/"+str(BRANCH[x[6:8]])):
+          y1="20BQ"
+        for sem in os.listdir(y1+"/"+str(BRANCH[x[6:8]])):
           if sem[:-4]=="1-2" and x[4:6]=="5A":
             continue
-          df=pd.read_csv(str(y)+"/"+str(BRANCH[x[6:8]])+"/"+str(sem))
+          df=pd.read_csv(str(y1)+"/"+str(BRANCH[x[6:8]])+"/"+str(sem))
           y=df.loc[df["HallTicket No"]==x]
           z=y.to_dict("list")
           result+=sem[:-4]+" Sem Result\n"
@@ -53,15 +53,15 @@ def sample_responses(input_text):
         result=""
         
         if x[0:6]=="21BQ4A":
-          y="20BQ"
+          y1="20BQ"
         elif  x[0:6]=="20BQ1A":
-          y="20BQ"
+          y1="20BQ"
         elif  x[0:6]=="20BQ5A":
-          y="19BQ"
+          y1="19BQ"
         else:
-          y="20BQ"
+          y1="20BQ"
           
-        df=pd.read_csv(y+"/"+BRANCH[x[6:8]]+"/"+x[11:14]+".csv")
+        df=pd.read_csv(y1+"/"+BRANCH[x[6:8]]+"/"+x[11:14]+".csv")
         y=df.loc[df["HallTicket No"]==x[0:10]]
         z=y.to_dict("list")
         result+=x[11:14]+" Sem Result\n"
