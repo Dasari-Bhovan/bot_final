@@ -42,6 +42,7 @@ def sample_responses(input_text):
             for i,j in z.items():
               result+=str(i)+" : "+str(j[0])+"\n"
           except:
+            result+="Not Found"
             pass
           
           result+="\n"  
@@ -70,7 +71,7 @@ def sample_responses(input_text):
             result+=str(i)+" : "+str(j[0])+"\n"  
           result+="\n"
         except:
-          return "Invalid roll number or semester"
+          result+="Data Not Found"
         return result
   except FileNotFoundError:
     return "Enter roll number correctly"
@@ -81,7 +82,7 @@ def start_command(update,context):
   update.message.reply_text('Type hi to start')
   
 def handle_messages(update,context):
-  text=str(update.message.text).lower()
+  text=str(update.message.text).upper()
   response =sample_responses(text)
   update.message.reply_text(response)
   
