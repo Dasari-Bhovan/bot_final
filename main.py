@@ -1,8 +1,12 @@
 import os
 import json
+from re import X
 import pandas as pd
 from telegram.ext import *
-my_secret = os.environ['API_KEY']
+x={
+  "API_KEY": "5751319983:AAHiDMjsHUx5SSTV_r4m0yKErPJSYcOobyo"
+}
+my_secret = x['API_KEY']
 
 def sample_responses(input_text):
   x=str(input_text).upper()
