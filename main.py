@@ -23,14 +23,13 @@ def sample_responses(input_text):
     if len(x)==10 and (x[0:4]=="20BQ" or x[0:4]=="19BQ"):
       if x[6:8] in BRANCH and  (x[4:6]=="5A" or x[4:6]=="1A"):
         result=""
+        y1=x[0:4]
         if x[0:6]=="21BQ5A":
           y1="20BQ"
         elif  x[0:6]=="20BQ1A":
           y1="20BQ"
         elif  x[0:6]=="20BQ5A":
           y1="19BQ"
-        else:
-          y1="20BQ"
         for sem in os.listdir(y1+"/"+str(BRANCH[x[6:8]])):
           if sem[:-4]=="1-2" and x[4:6]=="5A":
             continue
