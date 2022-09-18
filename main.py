@@ -20,7 +20,7 @@ def sample_responses(input_text):
   if x in ("Who are you?","What do you do?","Why you?"):
     return "Hey,how it's going? I am results bot.I will tell your results."
   try:
-    if len(x)==10 and (x[0:4]=="20BQ" or x[0:4]=="19BQ"):
+    if len(x)==10 and (x[0:4]=="20BQ" or x[0:4]=="19BQ" or x[0:4]=="21BQ"):
       if x[6:8] in BRANCH and  (x[4:6]=="5A" or x[4:6]=="1A"):
         result=""
         y1=x[0:4]
