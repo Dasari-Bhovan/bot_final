@@ -51,15 +51,11 @@ def sample_responses(input_text):
     elif len(x)==14 and (x[0:4]=="20BQ" or x[0:4]=="19BQ"):
       if x[6:8] in BRANCH and (x[4:6]=="5A" or x[4:6]=="1A"):
         result=""
-        
-        if x[0:6]=="21BQ4A":
-          y1="20BQ"
-        elif  x[0:6]=="20BQ1A":
+        y1=x[0:4]
+        if x[0:6]=="21BQ5A":
           y1="20BQ"
         elif  x[0:6]=="20BQ5A":
           y1="19BQ"
-        else:
-          y1="20BQ"
           
         df=pd.read_csv(y1+"/"+BRANCH[x[6:8]]+"/"+x[11:14]+".csv")
         y=df.loc[df["HallTicket No"]==x[0:10]]
@@ -96,4 +92,3 @@ def main():
   updater.start_polling()
   updater.idle()
 main()
-  
