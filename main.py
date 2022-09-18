@@ -75,11 +75,14 @@ def sample_responses(input_text):
         
 def start_command(update,context):
   update.message.reply_text('Type hi to start')
-  
+def results_command(update,context):
+      update.message.reply_text('Type your roll number to know your result')
+      
 def handle_messages(update,context):
   text=str(update.message.text).upper()
   response =sample_responses(text)
   update.message.reply_text(response)
+  update.message.reply_text("If your result is wrong.Let us know")
   
 def thank_you_command(update,context):
   text="Thank you for using bot.If any results are wrong.Let us know ."
@@ -88,6 +91,7 @@ def main():
   updater=Updater(my_secret,use_context=True)
   dp=updater.dispatcher
   dp.add_handler(CommandHandler("start",start_command))
+  dp.add_handler(CommandHandler("results",results_command))
   dp.add_handler(MessageHandler(Filters.text,handle_messages))
   updater.start_polling()
   updater.idle()
