@@ -30,7 +30,9 @@ def sample_responses(input_text):
           y1="20BQ"
         elif  x[0:6]=="20BQ5A":
           y1="19BQ"
-        for sem in os.listdir(y1+"/"+str(BRANCH[x[6:8]])):
+        dir=os.listdir(y1+"/"+str(BRANCH[x[6:8]]))
+        dir.sort()
+        for sem in dir:
           if sem[:-4]=="1-2" and x[4:6]=="5A":
             continue
           df=pd.read_csv(str(y1)+"/"+str(BRANCH[x[6:8]])+"/"+str(sem))
@@ -48,7 +50,7 @@ def sample_responses(input_text):
         return result
       else:
         return "Enter hallticket number in the specific format\nTo check your all semester-end results type'<ROLL NUMBER> for example '20BQ1A42XX' OR To check about a single sem-end results type</ROLL NUMBER <SPACE> SEMESTER> for example '20BQ1A42XX 1-2'"
-    elif len(x)==14 and (x[0:4]=="20BQ" or x[0:4]=="19BQ"):
+    elif len(x)==14 and (x[0:4]=="20BQ" or x[0:4]=="19BQ" or x[0:4]=="21BQ" ):
       if x[6:8] in BRANCH and (x[4:6]=="5A" or x[4:6]=="1A"):
         result=""
         y1=x[0:4]
