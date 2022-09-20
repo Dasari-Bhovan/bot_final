@@ -12,9 +12,12 @@ def sample_responses(input_text):
   x=str(input_text).upper()
   if x[0:2]=="19" or (x[0:2]=="20" and x[4:6]=="5A"):
     BRANCH={"01":"CIV","02":"EEE","03":"MEC","04":"ECE","05":"CSE","12":"IT"}
-  else:
+  elif x[0:2]=="20" or (x[0:2]=="21" and x[4:6]=="5A"):
     BRANCH={"01":"CIV","02":"EEE","03":"MEC","04":"ECE","05":"CSE","12":"IT","42":"CM","47":"CC","49":"CO","54":"AD"}
-  
+  elif x[0:2]=="21" or (x[0:2]=="22" and x[4:6]=="5A"):
+    BRANCH={"01":"CIV","02":"EEE","03":"MEC","04":"ECE","05":"CSE","12":"INF","42":"CSM","47":"CIC","49":"CSO","54":"AID","61":"AIM"}
+  else:
+    return "check year correctly"
   if x in ("hi","hello","start"):
     return "Hey,how it's going?"
   if x in ("Who are you?","What do you do?","Why you?"):
